@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	setlocale(LC_ALL, "Portuguese");
+
+	int num1, num2, temp, cont;
+	
+	printf("Informe o primeiro número: ")	;
+	scanf("%d", &num1);
+	
+	printf("Informe o segundo número: ");
+	scanf("%d", &num2);
+	
+	printf("Os números ímpares são: ");
+	
+	if(num1>0 && num2>0){
+		if(num1<num2){
+			while(num1<=num2){
+				if(num1%2==1){
+					cont++;
+					printf("%d ", num1);
+				}
+				num1++;
+			}
+			printf("\nA quantidade de números ímpares contidos entre os números digitados é: %d", cont);
+		}
+		else{
+			// Decidi fazer esse else caso número 2 for menor que número 1 para ainda sim rodar o programa e visualizar quantos números ímpares existem
+			temp=num1;
+			num1=num2;
+			num2=temp;
+			
+			while(num1<=num2){
+				if(num1%2==1){
+					cont++;
+					printf("%d ", num1);
+				}
+				num1++;
+			}
+			printf("\nA quantidade de números ímpares contidos entre os números digitados é: %d", cont);
+		}
+	}
+	else
+		printf("Valores inválidos");
+	
+}
