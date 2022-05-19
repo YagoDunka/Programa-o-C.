@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	setlocale(LC_ALL, "Portuguese");
+
+	int idade, ano, mesI, mesA, diaI, diaA, cont;
+	
+	printf("Informe o dia em que estamos: ");
+	scanf("%d", &diaA);
+	printf("Informe o mês em que estamos: ");
+	scanf("%d", &mesA);
+	printf("Informe o ano em que estamos: ");
+	scanf("%d", &ano);
+  
+	printf("Informe o dia de nascimento: ");
+	scanf("%d", &diaI);
+	printf("Informe o mês de nascimento: ");
+	scanf("%d", &mesI);
+	printf("Informe o ano de nascimento da pessoa: ");
+	scanf("%d", &idade);
+	
+	if(mesI<mesA)
+		cont=ano-idade-1;
+	else
+		cont=ano-idade;
+		
+	if(mesI==mesA){
+		if(diaI<diaA)
+			cont=ano-idade-1;
+		else
+			cont=ano-idade;	
+	}
+	
+	while(idade!=0000){
+		if(cont>=18)
+			printf("Está autorizada a entrar no evento.\n");
+		else
+			printf("Não está autorizada a entrar no evento");
+		
+		printf("\nInforme o dia de nascimento: ");
+		scanf("%d", &diaI);
+		printf("Informe o mês de nascimento: ");
+		scanf("%d", &mesI);
+		printf("Informe o ano de nascimento da pessoa: ");
+		scanf("%d", &idade);
+		
+		if(mesI<mesA)
+			cont=ano-idade-1;
+		else
+			cont=ano-idade;
+		if(mesI==mesA){
+			if(diaI<diaA)
+				cont=ano-idade-1;
+			else
+				cont=ano-idade;	
+		}
+		
+	}
+	
+}
