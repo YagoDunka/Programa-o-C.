@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void menu();
+void caixa();
+void relatorio();
+
+char op_venda;
+float op_menu, valor, prazo, vista;
+int cont;
+
+
+int main (){
+	
+	menu();
+}
+
+void menu(){
+	
+	setlocale(LC_ALL, "Portuguese");
+	
+	system("cls");
+	printf("\nSISTEMA LOJA");
+	printf("\n1-CAIXA\n2-RELATÓRIO DIÁRIO\n3-SAIR\n");
+	scanf("%d", &op_venda);
+	
+	switch(op_venda){
+		case 1:
+			caixa();
+			break;
+		case 2:
+			relatorio();
+		break;
+		case 3:
+			printf("Saindo!");
+			system("exit");
+			break;
+		default:
+			system("cls");
+			printf("Opção inválida! \nTente novamente!\n");
+			system("pause");
+			menu();
+			break;
+	}
+}
+
+void caixa(){
+
+	setlocale(LC_ALL, "Portuguese");
+
+	printf("Informe o tipo de pagamento:\n(V) Compras à vista;\n(P) Compras a prazo;\n(F) Finalizar;\nCódigo da venda:");
+	scanf("%s", &op_venda);
+
+	if(op_venda=='v' || op_venda=='V' || op_venda=='P'|| op_venda=='p'){
+		printf("Infome o valor da venda: ");
+		scanf("%f", &valor);
+	}
+
+	system("cls");
+
+	while(op_venda!='F'){
+		if(op_venda=='V' || op_venda=='v'){
+			vista=vista+valor;
+			cont++;
+		}
+		if(op_venda=='P'|| op_venda=='p'){
+			prazo=prazo+valor;
+			cont++;
+		}
+		
+		printf("Informe o tipo de pagamento:\n(V) Compras à vista;\n(P) Compras a prazo;\n(F) Finalizar;\nCódigo da venda: ");
+		scanf("%s", &op_venda);
+
+		if(op_venda=='v' || op_venda=='V' || op_venda=='P'|| op_venda=='p'){
+			printf("Infome o valor da venda: ");
+			scanf("%f", &valor);
+		}
+		system("cls");
+	}
+	
+	menu();
+}
+
+void relatorio(){
+	
+	printf("\nCompras à vista R$%.2f", vista);
+	printf("\nCompras a prazo R$%.2f", prazo);
+	printf("\nForam feitas %d compras hoje.", cont);
+	printf("\nO valor total das compras R%.2f", vista+prazo);
+	
+	menu();
+}
