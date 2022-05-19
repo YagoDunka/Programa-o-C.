@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	setlocale(LC_ALL, "Portuguese");
+	
+	int cand1=0, cand2=0, cand3=0, branco=0, nulo=0, votantes, voto, cont;
+	char confirma;
+	
+	printf("Informe o número de votantes: ");
+	scanf("%d", &votantes);
+	
+	printf("Confirma %d alunos votantes?\n(S) Sim\n(N) Não\nConfirma? ", votantes);
+	scanf("%s", &confirma);
+	
+	if(confirma=='S' || confirma=='s'){
+		cont=votantes;
+		while(cont>=1){
+			system("cls");
+			printf("Digite o número do candidato e confirme.\n(1) Candidato 1\n(2)Candidato 2\n(3) Candidato 3\n(0) Nulo\nVOTO: ");
+			scanf("%d", &voto);
+			
+	 		switch(voto){
+				case 1:
+					cand1++;
+					break;
+				case 2:
+					cand2++;
+					break;
+				case 3:
+					cand3++;
+					break;
+				case 0:
+					branco++;
+					break;
+				default:
+					nulo++;
+					break;
+			}
+			cont--;
+			system("cls"); // Limpar o voto anterior para manter o sigilo
+		}
+		printf("\t*****Votação encerrada*****\n \n \n");
+		system("pause"); // Ápos o ultimo voto sistema pausa até o usuário apertar enter e mostrar o resultado da votação
+		system("cls");
+		printf("Votantes: %d\nVotos candidato número 1: %d\nVotos candidato número 2: %d\nVotos candidato número 3: %d\nBrancos: %d\nNulo: %d", votantes, cand1, cand2, cand3, branco, nulo);
+	}
+	else
+		printf("Votação encerrada pelo usuário.");
+}
