@@ -12,19 +12,19 @@ int cont;
 
 
 int main (){
-	
+
 	menu();
 }
 
 void menu(){
-	
+
 	setlocale(LC_ALL, "Portuguese");
-	
+
 	system("cls");
-	printf("\nSISTEMA LOJA");
-	printf("\n1-CAIXA\n2-RELATÓRIO DIÁRIO\n3-SAIR\n");
+	printf("\nSistema de Caixa");
+	printf("\n(1) CAIXA\n(2) Relatório Diário\n(3) Sair\nOpção: ");
 	scanf("%d", &op_venda);
-	
+
 	switch(op_venda){
 		case 1:
 			caixa();
@@ -33,7 +33,7 @@ void menu(){
 			relatorio();
 		break;
 		case 3:
-			printf("Saindo!");
+			printf("Finalizado!");
 			system("exit");
 			break;
 		default:
@@ -48,7 +48,8 @@ void menu(){
 void caixa(){
 
 	setlocale(LC_ALL, "Portuguese");
-
+	
+	system("cls");
 	printf("Informe o tipo de pagamento:\n(V) Compras à vista;\n(P) Compras a prazo;\n(F) Finalizar;\nCódigo da venda:");
 	scanf("%s", &op_venda);
 
@@ -59,7 +60,7 @@ void caixa(){
 
 	system("cls");
 
-	while(op_venda!='F'){
+	while(op_venda!='F' && op_venda!='f'){
 		if(op_venda=='V' || op_venda=='v'){
 			vista=vista+valor;
 			cont++;
@@ -68,7 +69,7 @@ void caixa(){
 			prazo=prazo+valor;
 			cont++;
 		}
-		
+
 		printf("Informe o tipo de pagamento:\n(V) Compras à vista;\n(P) Compras a prazo;\n(F) Finalizar;\nCódigo da venda: ");
 		scanf("%s", &op_venda);
 
@@ -78,16 +79,17 @@ void caixa(){
 		}
 		system("cls");
 	}
-	
+
 	menu();
 }
 
 void relatorio(){
 	
+	system("cls");
+	printf("\nTotal de compras hoje: %d.", cont);
 	printf("\nCompras à vista R$%.2f", vista);
 	printf("\nCompras a prazo R$%.2f", prazo);
-	printf("\nForam feitas %d compras hoje.", cont);
-	printf("\nO valor total das compras R%.2f", vista+prazo);
-	
+	printf("\nO valor total das compras R%.2f\n", vista+prazo);
+	system("pause");
 	menu();
 }
