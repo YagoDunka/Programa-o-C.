@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+
+int main (){
+	setlocale(LC_ALL, "Portuguese");
+
+	int cod_aluno, qtd_notas;
+	float nota, media, cont;
+	
+	printf("Digite ''-1'' para finalizar o programa.\nInforme o códido do aluno: ");
+	scanf("%d", &cod_aluno);
+	
+	while (cod_aluno!=(-1)){
+		printf("\nEscolha quantas notas serão calculadas:\n(5) Cinco notas;\n(4) Quantro notas;\n(3) Três notas;\t");
+		scanf("%d", &qtd_notas);
+		
+		switch (qtd_notas){
+			case 5:
+				while (cont<5){
+					printf("Informe a nota do aluno: ");
+					scanf("%f", &nota);
+					if (nota>=0 && nota<=10){
+						media=media+nota;
+						cont++;
+					}
+					else
+						printf("\nValor inválido, digite a nota novamente");
+				}
+				break;
+			case 4:
+				while (cont<4){
+					printf("Informe a nota do aluno: ");
+					scanf("%f", &nota);
+					if (nota>=0 && nota<=10){
+						media=media+nota;
+						cont++;
+					}
+					else
+						printf("\nValor inválido, digite a nota novamente");
+				}
+				break;
+			case 3:
+				while (cont<3){
+					printf("Informe a nota do aluno: ");
+					scanf("%f", &nota);
+					if (nota>=0 && nota<=10){
+						media=media+nota;
+						cont++;
+					}
+					else
+						printf("\nValor inválido, digite a nota novamente.\n");
+				}
+				break;
+			default:
+				printf("Valor inválido.\n");
+				break;
+		}
+		
+		nota = media / qtd_notas;
+		
+		if (nota<4.50)
+			printf("\nO aluno está reprovado!\nNOTA FINAL: %.2f\n", nota);
+		if (nota>=4.50 && nota<7)
+			printf("\nO aluno está em recuperação!\nNOTA FINAL: %.2f\n", nota);
+		if (nota>=7 && nota<=10)
+			printf("\nO aluno está aprovado!\nNOTA FINAL: %.2f\n", nota);
+		
+		
+		printf("\nDigite ''-1'' para finalizar o programa.\nInforme o código do aluno: ");
+		scanf("%d", &cod_aluno);
+	}
+}
