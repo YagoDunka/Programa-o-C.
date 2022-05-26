@@ -1,0 +1,283 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+// Feito em colaboração com Douglas Andrade e Gustavo Grippa. 
+
+#define size 32
+#define TAM 5
+int vetMA[TAM], vetTI[TAM], vetRH[TAM], vetCO[TAM], cont; // t r m c contadores para o indice com o mais votado
+int op;
+int contMA=0, contTI=0, contRH=0;
+
+void menu();
+void votar();
+void relatorio();
+void marketing();
+void ti();
+void rh();
+
+int main(){
+	setlocale(LC_ALL, "Portuguese");
+	char palavra[12] = {'P', 'R','O','C','E','S','S','A','N','D','O'};
+	int i = 0, j = 0, cont = 1;
+
+	while(cont < 4){
+		system("cls");
+		
+		for(i = 0; i < 12; i++){
+			printf("%c", palavra[i]);
+			Sleep(50);	
+		}
+		cont++;	
+	}
+	menu();	
+}
+
+void menu(){
+	system("cls");
+	printf("\n** MENU **");
+	printf("\n(1) VOTAR\n(2) RELATORIO\n(3) SAIR\nOpção: ");
+	scanf(" %d", &op);
+	switch (op){
+		case 1:
+			votar();
+			break;
+		case 2:
+			relatorio();
+			break;
+		case 3: 
+			printf("\nSaindo.");
+			system("exit");
+			break;
+		default: 
+			printf("Erro!\nDigite uma opção válida!");
+			menu();
+			break;
+	}
+}
+
+void votar(){
+	system("cls");
+	printf("\n** SETORES  **\n(1) MARKETING\n(2) TI\n(3) RH\nOpção: ");
+	scanf(" %d", &op);
+	switch (op){
+		case 1:
+			marketing();
+			break;
+		case 2:
+			ti();
+			break;
+		case 3: 
+			rh();
+			break;
+		default:
+			printf("Erro!\n Digite uma opção válida!");
+			sleep(2);
+			votar();
+			break;
+	}
+		
+}
+
+void marketing(){
+	
+	system("cls");
+	if(contMA<size){
+		printf("Votos computados: %d", contMA);
+		printf("\nMARKETING\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+		scanf(" %d", &op);
+		while(op<0 || op>4){
+			system("cls");
+			printf("Erro!\n Digite uma opção válida!");
+			printf("\nMARKETING\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+			scanf(" %d", &op);
+		}
+		switch (op){
+			case 0:
+				printf("\nVOTO: Segunda-feira");
+				vetMA[0]=vetMA[0]+1;
+				break;
+			case 1:
+				printf("\nVOTO: Terça-feira");
+				vetMA[1]=vetMA[1]+1;
+				break;
+			case 2:
+				printf("\nVOTO: Quarta-feira");
+				vetMA[2]=vetMA[2]+1;
+				break;
+			case 3:
+				printf("\nVOTO: Quinta-feira");
+				vetMA[3]=vetMA[3]+1;
+				break;
+			case 4:
+				printf("\nVOTO: Sexta-feira");
+				vetMA[4]=vetMA[4]+1;
+				break;
+			default:
+				printf("Nice try");
+				break;
+		}
+	}
+	else
+		printf("\nNúmero de funcionários atingido.");
+	
+	contMA++;
+	sleep(1);
+	menu();
+}
+
+void ti(){
+		
+	system("cls");
+	if(contMA<size){
+		printf("Votos computados: %d", contTI);
+		printf("\nTI\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+		scanf(" %d", &op);
+		while(op<0 || op>4){
+			system("cls");
+			printf("Erro!\n Digite uma opção válida!");
+			printf("\nTI\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+			scanf(" %d", &op);
+		}
+		switch (op){
+			case 0:
+				printf("\nVOTO: Segunda-feira");
+				vetTI[0]=vetTI[0]+1;
+				break;
+			case 1:
+				printf("\nVOTO: Terça-feira");
+				vetTI[1]=vetTI[1]+1;
+				break;
+			case 2:
+				printf("\nVOTO: Quarta-feira");
+				vetTI[2]=vetTI[2]+1;
+				break;
+			case 3:
+				printf("\nVOTO: Quinta-feira");
+				vetTI[3]=vetTI[3]+1;
+				break;
+			case 4:
+				printf("\nVOTO: Sexta-feira");
+				vetTI[4]=vetTI[4]+1;
+				break;
+			default:
+				printf("Nice try");
+				break;
+		}
+	}
+	else
+		printf("\nNúmero de funcionários atingido.");
+	
+	contTI++;
+	sleep(1);
+	menu();
+}
+
+void rh(){
+			
+	system("cls");
+	if(contMA<size){
+		printf("Votos computados: %d", contRH);
+		printf("\nRH\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+		scanf(" %d", &op);
+		while(op<0 || op>4){
+			system("cls");
+			printf("Erro!\n Digite uma opção válida!");
+			printf("\nRH\n\n(0) Segunda-feira\n(1) Terça-feira\n(2) Quarta-feira\n(3) Quinta-feira\n(4)Sexta-feira\n Insira seu voto: ");
+			scanf(" %d", &op);
+		}
+		switch (op){
+			case 0:
+				printf("\nVOTO: Segunda-feira");
+				vetRH[0]=vetRH[0]+1;
+				break;
+			case 1:
+				printf("\nVOTO: Terça-feira");
+				vetRH[1]=vetRH[1]+1;
+				break;
+			case 2:
+				printf("\nVOTO: Quarta-feira");
+				vetRH[2]=vetRH[2]+1;
+				break;
+			case 3:
+				printf("\nVOTO: Quinta-feira");
+				vetRH[3]=vetRH[3]+1;
+				break;
+			case 4:
+				printf("\nVOTO: Sexta-feira");
+				vetRH[4]=vetRH[4]+1;
+				break;
+			default:
+				printf("Nice try");
+				break;
+		}
+	}
+	else
+		printf("\nNúmero de funcionários atingido.");
+	
+	contRH++;
+	sleep(1);
+	menu();
+}
+
+void relatorio(){
+	int x = 0;
+	system("cls");
+	printf("\n** RELATORIO **");
+	if((contMA==0)&&(contTI==0)&&(contRH==0)){
+		printf("\nErro!\nVotação inexistente");
+		sleep(2);
+		menu();
+	}
+	
+	printf("\n** MARKETING **");
+	printf("\nSegunda-feira:%d", vetMA[0]);
+	printf("\nTerça-feira:%d", vetMA[1]);
+	printf("\nQuarta-feira:%d", vetMA[2]);
+	printf("\nQuinta-feira:%d", vetMA[3]);
+	printf("\nSexta-feira:%d", vetMA[4]);
+	
+	printf("\n-----------------");
+	
+	printf("\n** TI **");
+	printf("\nSegunda-feira:%d", vetTI[0]);
+	printf("\nTerça-feira:%d", vetTI[1]);
+	printf("\nQuarta-feira:%d", vetTI[2]);
+	printf("\nQuinta-feira:%d", vetTI[3]);
+	printf("\nSexta-feira:%d", vetTI[4]);
+	
+	printf("\n-----------------");
+	
+	printf("\n** RH **");
+	printf("\nSegunda-feira:%d", vetRH[0]);
+	printf("\nTerça-feira:%d", vetRH[1]);
+	printf("\nQuarta-feira:%d", vetRH[2]);
+	printf("\nQuinta-feira:%d", vetRH[3]);
+	printf("\nSexta-feira:%d", vetRH[4]);
+	
+	for(x = 0; x < 5; x++){
+		vetCO[x]=vetRH[x]+vetTI[x]+vetMA[x];
+	}
+	printf("\n-----------------");
+	
+	printf("\n** VOTOS FINAIS **");
+	printf("\n1 Segunda-feira:%d", vetCO[0]);
+	printf("\n2 Terça-feira:%d", vetCO[1]);
+	printf("\n3 Quarta-feira:%d", vetCO[2]);
+	printf("\n4 Quinta-feira:%d", vetCO[3]);
+	printf("\n5 Sexta-feira:%d\n", vetCO[4]);
+	
+	
+	for(x=0; x<4; x++){
+		if(vetCO[x]>vetCO[x+1]){
+			cont=x;
+		}
+		else
+			cont=x+1;
+	}
+	printf("Dia com maior voto: %d\n", vetCO[cont]);
+	system("pause");
+	menu();
+}
